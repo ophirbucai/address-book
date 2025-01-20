@@ -36,6 +36,7 @@
     "node": ">=20.0.0"
   },
   "lint-staged": {
-    "*": ["npm run typecheck", "npm run format"]
+    "*.{ts,tsx}": ["npm run typecheck"],
+    "*": ["npm run format"]
   }
 }
