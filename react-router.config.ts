@@ -5,6 +5,6 @@ export default {
   ssr: true,
   async prerender() {
     const contacts = await getContacts();
-    return contacts.map(({ id }) => `/products/${id}`);
+    return contacts.map(({ id }) => `/contacts/${id}`);
   },
 } satisfies Config;
