@@ -1,10 +1,14 @@
 type StarProps<T extends Function | undefined> = T extends Function
-? React.ComponentProps<"button">
-  : Omit<React.ComponentProps<"span">, 'onClick'>;
+  ? React.ComponentProps<"button">
+  : Omit<React.ComponentProps<"span">, "onClick">;
 
 import style from "./star.module.css";
 
-export function Star<T extends Function>({ onClick, className, ...rest }: StarProps<T>) {
+export function Star<T extends Function>({
+  onClick,
+  className,
+  ...rest
+}: StarProps<T>) {
   if (onClick) {
     return (
       <button
@@ -17,7 +21,7 @@ export function Star<T extends Function>({ onClick, className, ...rest }: StarPr
       </button>
     );
   }
-  
+
   return (
     <span className={`${className} ${style.star}`} {...rest}>
       ★

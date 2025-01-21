@@ -1,11 +1,11 @@
 {
-    "[json]": {
-        "editor.defaultFormatter": "biomejs.biome"
-    },
-    "cssModules.camelCase": true,
-    "editor.quickSuggestions": {
-        "other": "on",
-        "comments": "off",
-        "strings": "off"
-    }
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "cssModules.camelCase": true,
+  "editor.quickSuggestions": {
+    "other": "on",
+    "comments": "off",
+    "strings": "off"
+  }
 }

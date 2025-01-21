@@ -77,7 +77,7 @@ export default function ContactPage({ loaderData }: Route.ComponentProps) {
             {isFavorite && (
               <Star
                 className={style.contactStar}
-                onClick={() => 
+                onClick={() =>
                   fetcher.submit({ favorite: "false" }, { method: "POST" })
                 }
               />
