@@ -16,7 +16,7 @@ import { getContacts } from "./data";
 import { Suspense } from "react";
 
 export function loader() {
-  return { contactList: getContacts() }
+  return { contactList: getContacts() };
 }
 
 export default function App() {
