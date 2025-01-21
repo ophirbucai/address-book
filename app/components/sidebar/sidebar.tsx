@@ -9,7 +9,6 @@ type Props = {
 };
 
 export function Sidebar({ contactList }: Props) {
-  // const navRef = useScrollPosition();
   return (
     <>
       <h1>React Router Contacts</h1>

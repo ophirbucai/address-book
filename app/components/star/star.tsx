@@ -1,27 +1,23 @@
-type StarPropsWithoutOnClick = Omit<React.ComponentProps<"span">, "onClick">;
-type StarPropsWithOnClick = React.ComponentProps<"button">;
+type StarProps<T extends Function | undefined> = T extends Function
+? React.ComponentProps<"button">
+  : Omit<React.ComponentProps<"span">, 'onClick'>;
 
-type StarProps =
-  | (StarPropsWithoutOnClick & { onClick?: never })
-  | (StarPropsWithOnClick & {
-      onClick: Required<StarPropsWithOnClick>["onClick"];
-    });
 import style from "./star.module.css";
 
-export function Star({ onClick, className, ...rest }: StarProps) {
+export function Star<T extends Function>({ onClick, className, ...rest }: StarProps<T>) {
   if (onClick) {
     return (
       <button
         type="button"
         onClick={onClick}
         className={`${className} ${style.star}`}
-        {...(rest as StarPropsWithOnClick)}
+        {...rest}
       >
         ★
       </button>
     );
   }
-
+  
   return (
     <span className={`${className} ${style.star}`} {...rest}>
       ★
