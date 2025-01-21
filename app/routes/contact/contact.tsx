@@ -44,7 +44,7 @@ export default function ContactPage({ loaderData }: Route.ComponentProps) {
 
   if (useIsLoading() || !contact) {
     return (
-      <div className={style.contact}>
+      <div className={style.contactHeader}>
         <Skeleton
           className={style.contactAvatar}
           containerClassName={style.contactAvatarContainer}
