@@ -1,5 +1,4 @@
 import {
-  Await,
   Links,
   Meta,
   Outlet,
@@ -11,9 +10,10 @@ import {
 import type { Route } from "./+types/root";
 
 import stylesheet from "./app.css?url";
-import { Sidebar } from "./components/sidebar";
+import skeletonStylesheet from "react-loading-skeleton/dist/skeleton.css?url";
+import { Sidebar } from "./components/sidebar/sidebar";
 import { getContacts } from "./data";
-import { Suspense } from "react";
+import { SkeletonTheme } from "react-loading-skeleton";
 
 export function loader() {
   return { contactList: getContacts() };
@@ -25,11 +25,10 @@ export default function App() {
   return (
     <>
       <div id="sidebar">
-        <Suspense>
-          <Await resolve={contactList}>
-            {(contactList) => <Sidebar contactList={contactList} />}
-          </Await>
-        </Suspense>
+        <Sidebar contactList={contactList} />
+      </div>
+      <div id="detail">
+        <Outlet />
       </div>
     </>
   );
@@ -42,11 +41,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href={stylesheet} />
+        <link rel="stylesheet" href={skeletonStylesheet} />
         <Meta />
         <Links />
       </head>
       <body>
-        {children}
+        <SkeletonTheme>{children}</SkeletonTheme>
         <ScrollRestoration />
         <Scripts />
       </body>

@@ -1,0 +1,54 @@
+.contact-header {
+    display: grid;
+    grid-template-columns: minmax(56px, 84px) 1fr;
+    gap: 0 10px;
+    align-items: center;
+    grid-template-rows: repeat(2, 28px);
+}
+
+.contact-avatar {
+    object-fit: cover;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.contact-avatar-container {
+    grid-row: 1 / -1;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: rgb(235, 235, 235);
+}
+
+.contact-row-container {
+    grid-column: 2;
+}
+
+.contact-link {
+    color: rgb(43, 99, 253);
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+
+.contact-name {
+    white-space: nowrap;
+}
+
+.contact-menu {
+    margin-top: 2rem;
+}
+
+.contact-menu button {
+    background: white;
+    border-radius: 8px;
+    padding: 8px 16px;
+    box-shadow: 0 0 0 1px #e3e3e3;
+    color: #818181;
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.contact-star {
+    margin-inline-start: 4px;
+}
