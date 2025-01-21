@@ -1,7 +1,7 @@
 import { Await, Form, NavLink } from "react-router";
 import type { ContactRecord } from "app/data";
 import { Suspense } from "react";
-import formStyle from '../../styles/form.module.css';
+import formStyle from "../../styles/form.module.css";
 import { Star } from "../star/star";
 
 type Props = {
@@ -26,7 +26,9 @@ export function Sidebar({ contactList }: Props) {
           <div aria-hidden hidden={true} id="search-spinner" />
         </Form>
         <Form method="post">
-          <button type="submit" className={formStyle.formButton}>New</button>
+          <button type="submit" className={formStyle.formButton}>
+            New
+          </button>
         </Form>
       </div>
       <nav>

@@ -22,5 +22,9 @@ export function Star({ onClick, className, ...rest }: StarProps) {
     );
   }
 
-  return <span className={`${className} ${style.star}`} {...rest}>★</span>;
+  return (
+    <span className={`${className} ${style.star}`} {...rest}>
+      ★
+    </span>
+  );
 }

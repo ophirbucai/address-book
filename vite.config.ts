@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [reactRouter()],
   css: {
     modules: {
-      localsConvention: 'camelCase'
-    }
-  }
+      localsConvention: "camelCase",
+    },
+  },
 });
