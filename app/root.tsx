@@ -1,58 +1,49 @@
 import {
-  Form,
+  Await,
+  Links,
+  Meta,
+  Outlet,
   Scripts,
   ScrollRestoration,
   isRouteErrorResponse,
+  useLoaderData,
 } from "react-router";
 import type { Route } from "./+types/root";
 
-import appStylesHref from "./app.css?url";
+import stylesheet from "./app.css?url";
+import { Sidebar } from "./components/sidebar";
+import { getContacts } from "./data";
+import { Suspense } from "react";
+
+export function loader() {
+  return { contactList: getContacts() }
+}
 
 export default function App() {
+  const { contactList } = useLoaderData<typeof loader>();
+
   return (
     <>
       <div id="sidebar">
-        <h1>React Router Contacts</h1>
-        <div>
-          <Form id="search-form" role="search">
-            <input
-              aria-label="Search contacts"
-              id="q"
-              name="q"
-              placeholder="Search"
-              type="search"
-            />
-            <div aria-hidden hidden={true} id="search-spinner" />
-          </Form>
-          <Form method="post">
-            <button type="submit">New</button>
-          </Form>
-        </div>
-        <nav>
-          <ul>
-            <li>
-              <a href={`/contacts/1`}>Your Name</a>
-            </li>
-            <li>
-              <a href={`/contacts/2`}>Your Friend</a>
-            </li>
-          </ul>
-        </nav>
+        <Suspense>
+          <Await resolve={contactList}>
+            {(contactList) => <Sidebar contactList={contactList} />}
+          </Await>
+        </Suspense>
       </div>
     </>
   );
 }
 
-// The Layout component is a special export for the root route.
-// It acts as your document's "app shell" for all route components, HydrateFallback, and ErrorBoundary
-// For more information, see https://reactrouter.com/explanation/special-files#layout-export
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href={appStylesHref} />
+        <link rel="stylesheet" href={stylesheet} />
+        <Meta />
+        <Links />
       </head>
       <body>
         {children}
