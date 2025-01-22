@@ -65,7 +65,7 @@ export default function ContactPage() {
         {(contact) => {
           const isFavorite =
             fetcher.formData?.get("favorite") === "true" || contact?.favorite;
-            
+
           return (
             contact && (
               <article className={style.contact}>

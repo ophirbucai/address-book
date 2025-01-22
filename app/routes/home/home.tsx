@@ -75,7 +75,11 @@ export default function HomePage() {
           <strong>Select a contact</strong> from the sidebar to view their
           details
         </span>
-        <button type="button" className={style.actionHintHide} onClick={toggleActionHint}>
+        <button
+          type="button"
+          className={style.actionHintHide}
+          onClick={toggleActionHint}
+        >
           Hide
         </button>
       </div>
