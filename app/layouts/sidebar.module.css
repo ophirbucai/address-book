@@ -99,7 +99,10 @@
     background: #e3e3e3;
 }
 
-.sidebar-link.active {
+.sidebar-link[aria-current="page"] {
     background: hsl(224, 98%, 58%);
     color: white;
+}
+.sidebar-link[aria-current="page"] > * {
+    color: inherit;
 }
