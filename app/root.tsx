@@ -5,33 +5,15 @@ import {
   Scripts,
   ScrollRestoration,
   isRouteErrorResponse,
-  useLoaderData,
 } from "react-router";
 import type { Route } from "./+types/root";
 
 import stylesheet from "./app.css?url";
 import skeletonStylesheet from "react-loading-skeleton/dist/skeleton.css?url";
-import { Sidebar } from "./components/sidebar/sidebar";
-import { getContacts } from "./data";
 import { SkeletonTheme } from "react-loading-skeleton";
 
-export function loader() {
-  return { contactList: getContacts() };
-}
-
 export default function App() {
-  const { contactList } = useLoaderData<typeof loader>();
-
-  return (
-    <>
-      <div id="sidebar">
-        <Sidebar contactList={contactList} />
-      </div>
-      <div id="detail">
-        <Outlet />
-      </div>
-    </>
-  );
+  return <Outlet />;
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {

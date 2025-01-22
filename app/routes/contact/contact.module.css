@@ -1,3 +1,10 @@
+.contact {
+    margin: 3rem auto;
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+}
+
 .contact-header {
     display: grid;
     grid-template-columns: minmax(56px, 84px) 1fr;

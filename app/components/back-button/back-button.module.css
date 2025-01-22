@@ -1,0 +1,30 @@
+.back-button {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    display: inline-block;
+    opacity: 0;
+    font-size: 1.125rem;
+    font-weight: 500;
+    align-items: center;
+    position: relative;
+    color: #a4a4a4;
+}
+
+.back-button {
+    transition: transform, color 0.15s ease-in-out;
+}
+
+.back-button-arrow {
+    transition: transform 0.15s ease-in-out;
+    position: absolute;
+    left: 0;
+    transform: translate3d(-0.25rem, 0, 0);
+}
+
+.back-button:hover {
+    color: #3992ff;
+}
+
+.back-button:hover .back-button-arrow {
+    transform: translate3d(-0.5rem, 0, 0);
+}
